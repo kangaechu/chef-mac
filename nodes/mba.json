@@ -1,1 +1,9 @@
-{"run_list":[]}
+{
+  "user": {
+    "name": "endok"
+  },
+  "run_list":[
+    "recipe[mac_os_x]",
+    "recipe[mac-settings::dock]"
+  ]
+}
