@@ -1,12 +1,10 @@
-%w{ autohide }.each do |dock|
-  mac_os_x_userdefaults "com.apple.dock #{dock}" do
-    domain "com.apple.dock"
-    key dock
-    value "true"
-    type "boolean"
-    user node["user"]["name"]
-    notifies :run, 'execute[killall Dock]'
-  end
+mac_os_x_userdefaults "dock autohide" do
+  domain "com.apple.dock"
+  key "autohide"
+  value node["dock"]["autohide"]
+  type "boolean"
+  user node["user"]["name"]
+  notifies :run, 'execute[killall Dock]'
 end
 
 execute "killall Dock" do
