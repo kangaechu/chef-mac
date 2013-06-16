@@ -4,6 +4,7 @@
   },
   "run_list":[
     "recipe[mac_os_x]",
-    "recipe[mac-settings::dock]"
+    "recipe[mac-settings::dock]",
+    "recipe[mac-settings::keyboard]"
   ]
 }
