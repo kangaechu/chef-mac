@@ -1,4 +1,9 @@
 # install packages
 default["brew"]["packages"] = [
-  "git"
+  "git",
+  "rbenv",
+  "ruby-build",
+  "lv",
+  "nkf",
+  "wget"
 ]
