@@ -13,7 +13,6 @@ git node["user"]["home"] + "/.dotfiles" do
   repository node["user"]["dotfiles_repo"]
   reference "master"
   action :checkout
-  notifies :run, "bash[install dotfiles]"
 end
 
 bash "install dotfiles" do
@@ -24,4 +23,6 @@ bash "install dotfiles" do
   code <<-EOC
     $HOME/.dotfiles/install.sh
   EOC
+  creates node["user"]["home"] + "/.dotfiles/.executed"
 end
+
