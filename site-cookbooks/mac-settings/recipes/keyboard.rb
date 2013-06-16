@@ -2,7 +2,7 @@
 mac_os_x_userdefaults "function-keys-work-as-function keys" do
   domain '.GlobalPreferences'
   key 'com.apple.keyboard.fnState'
-  value node["keyboard"]["fnkey"]
+  value node["keyboard"]["com.apple.keyboard.fnState"]
   type "boolean"
   user node["user"]["name"]
 end

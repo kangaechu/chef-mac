@@ -2,4 +2,5 @@
 default["dock"]["autohide"] = true
 
 # keyboard
-default["keyboard"]["fnkey"] = true
+default["keyboard"]["com.apple.keyboard.fnState"] = true
+
