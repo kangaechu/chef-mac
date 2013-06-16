@@ -1,3 +1,8 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    dmg (1.1.0)
+
 GIT
   remote: https://github.com/jtimberman/mac_os_x-cookbook.git
   ref: master
@@ -6,5 +11,6 @@ GIT
     mac_os_x (1.4.2)
 
 DEPENDENCIES
+  dmg (>= 0)
   mac_os_x (>= 0)
 
