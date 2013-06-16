@@ -7,7 +7,9 @@
 # All rights reserved - Do Not Redistribute
 #
 
-git node["user"]["home"] + "/.dotfiles" do
+home = node["user"]["home"]
+
+git home + "/.dotfiles" do
   user node["user"]["name"]
   group node["user"]["group"]
   repository node["user"]["dotfiles_repo"]
@@ -18,11 +20,17 @@ end
 bash "install dotfiles" do
   user node["user"]["name"]
   group node["user"]["group"]
-  cwd node["user"]["home"]
-  environment "HOME" => node["user"]["home"]
+  cwd home
+  environment "HOME" => home
   code <<-EOC
     $HOME/.dotfiles/install.sh
   EOC
-  creates node["user"]["home"] + "/.dotfiles/.executed"
+  creates home + "/.dotfiles/.executed"
 end
 
+template home + "/.dotfiles/dot.zsh/.zshrc.local" do
+  source "dot.zshrc.local.erb"
+  owner node["user"]["name"]
+  group node["user"]["group"]
+  mode 0644
+end
