@@ -1,12 +1,16 @@
 {
   "user": {
-    "name": "endok"
+    "name": "endok",
+    "group": "staff",
+    "home": "/Users/endok",
+    "dotfiles_repo": "https://github.com/endok/dotfiles.git"
   },
-  "run_list":[
+  "run_list": [
     "recipe[mac_os_x]",
     "recipe[dmg]",
     "recipe[mac-settings::dock]",
     "recipe[mac-settings::keyboard]",
-    "recipe[mac-dmg::default]"
+    "recipe[mac-dmg::default]",
+    "recipe[dotfiles::default]"
   ]
 }
