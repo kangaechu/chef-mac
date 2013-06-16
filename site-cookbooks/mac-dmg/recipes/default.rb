@@ -12,3 +12,22 @@ dmg_package "Google Chrome" do
   source "https://dl-ssl.google.com/chrome/mac/stable/GGRM/googlechrome.dmg"
   action :install
 end
+
+# Last Pass
+dmg_package "lpmacosx" do
+  volumes_dir "LastPass for Mac OS X"
+  dmg_name "lastpass"
+  source "https://lastpass.com/download/cdn/lpmacosx.dmg"
+  type "pkg"
+  package_id "com.lastpass.lpmacosx"
+  action :install
+end
+
+dmg_package "GoogleJapaneseInput" do
+  source "https://dl.google.com/japanese-ime/latest/GoogleJapaneseInput.dmg"
+  type "pkg"
+  package_id "com.google.pkg.GoogleJapaneseInput"
+  action :install
+end
+
+
