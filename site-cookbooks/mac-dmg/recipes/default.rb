@@ -30,4 +30,25 @@ dmg_package "GoogleJapaneseInput" do
   action :install
 end
 
+dmg_package "KeyRemap4MacBook" do
+  volumes_dir "KeyRemap4MacBook-8.3.0"
+  source "https://pqrs.org/macosx/keyremap4macbook/files/KeyRemap4MacBook-8.3.0.dmg"
+  type "pkg"
+  package_id "org.pqrs.driver.KeyRemap4MacBook"
+  action :install
+end
+
+# KeyRemap4MacBook Setting
+directory node["user"]["home"] + "/Library/Application Support/KeyRemap4MacBook" do
+  owner node["user"]["name"]
+  group node["user"]["group"]
+  action :create
+end
+
+cookbook_file node["user"]["home"] + "/Library/Application Support/KeyRemap4MacBook/private.xml" do
+  source "private.xml"
+  owner node["user"]["name"]
+  group node["user"]["group"]
+  mode 0644
+end
 
